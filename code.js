@@ -1,6 +1,3 @@
-let question = document.querySelector(".question");
-question.innerHTML = "slim";
-
 let questions = [
   {
     question: "What is the capital of Ghana?",
@@ -40,7 +37,17 @@ let questions = [
   },
 ];
 
+let questionElement = document.querySelector(".question");
 
-function show_questions() {
-  let 
-}
+let answerContainer = document.querySelector(".answer_buttons");
+
+let nextButton = document.querySelector(".next_button");
+
+nextButton.addEventListener("click", () => {
+  questions[0].answer.forEach((answer) => {
+    let createdButton = document.createElement("button");
+    createdButton.classList.add("answer");
+    answerContainer.appendChild(createdButton);
+    createdButton.innerHTML=answer.text
+  });
+});
