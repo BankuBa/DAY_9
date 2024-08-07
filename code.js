@@ -43,11 +43,17 @@ let answerContainer = document.querySelector(".answer_buttons");
 
 let nextButton = document.querySelector(".next_button");
 
+let currentIndex = 0
+
+
 nextButton.addEventListener("click", () => {
-  questions[0].answer.forEach((answer) => {
-    let createdButton = document.createElement("button");
-    createdButton.classList.add("answer");
-    answerContainer.appendChild(createdButton);
-    createdButton.innerHTML=answer.text
+    questionElement.innerHTML = questions[currentIndex].question;
+
+  questions[currentIndex].answer.forEach((ans) => {
+    let buttons = document.createElement("button");
+    buttons.classList.add("answer");
+    answerContainer.appendChild(buttons);
+    buttons.innerHTML = ans.text;
   });
+  currentIndex += 1
 });
